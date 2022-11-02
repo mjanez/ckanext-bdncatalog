@@ -42,12 +42,12 @@ To install ckanext-bdncatalog:
      . /usr/lib/ckan/default/bin/activate
 
 2. Clone the source and install it on the virtualenv
-
-    git clone https://github.com/mjanez/ckanext-bdncatalog.git
-    cd ckanext-bdncatalog
-    pip install -e .
+	```
+	git clone https://github.com/mjanez/ckanext-bdncatalog.git
+	cd ckanext-bdncatalog
+	pip install -e .
 	pip install -r requirements.txt
-
+	```
 3. Add `bdncatalog` to the `ckan.plugins` setting in your CKAN
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
