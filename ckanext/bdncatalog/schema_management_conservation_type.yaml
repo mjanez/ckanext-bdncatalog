@@ -1,0 +1,89 @@
+scheming_version: 2
+dataset_type: management_conservation_type
+about: Modelo de management_conservation_type - EIDOS
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: eg. A descriptive title
+
+- field_name: name
+  prefix: management_conservation_type-
+  required: true
+  label: ID
+  help_text: Referencia inequívoca al recurso dentro de un contexto dado
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+  validators: if_empty_same_as(title) package_name_validator
+
+- field_name: uri
+  display_snippet: link.html
+  label: uri
+
+- field_name:  DC_ManagementID
+  preset: multiple_text_single
+  label: ManagementID
+
+- field_name:  DC_ManagementType
+  preset: multiple_text_single
+  label: ManagementType
+
+- field_name:  DC_Objectives
+  preset: multiple_text_single
+  label: Objectives
+
+- field_name:  Darwin_Year
+  preset: multiple_text_single
+  label: Year
+
+- field_name:  Darwin_ConservationMeasurementUnstructured
+  preset: multiple_text_single
+  label: ConservationMeasurementUnstructured
+
+- field_name:  Darwin_HumanAndEnvironmentalRelevance
+  preset: multiple_text_single
+  label: HumanAndEnvironmentalRelevance
+
+- field_name:  Darwin_HumanAndEnvironmentalRelevanceUnstructured
+  preset: multiple_text_single
+  label: HumanAndEnvironmentalRelevanceUnstructured
+
+- field_name:  Darwin_ManagementConservationUnstructured
+  preset: multiple_text_single
+  label: ManagementConservationUnstructured
+
+- field_name:  Darwin_ManagementPlan
+  preset: multiple_text_single
+  label: ManagementPlan
+
+- field_name:  Darwin_ManagementRemarks
+  preset: multiple_text_single
+  label: ManagementRemarks
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

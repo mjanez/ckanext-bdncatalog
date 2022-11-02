@@ -1,0 +1,85 @@
+scheming_version: 2
+dataset_type: reference_type
+about: Modelo de reference_type - EIDOS
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: eg. A descriptive title
+
+- field_name: name
+  prefix: reference_type-
+  required: true
+  label: ID
+  help_text: Referencia inequívoca al recurso dentro de un contexto dado
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+  validators: if_empty_same_as(title) package_name_validator
+
+- field_name: uri
+  display_snippet: link.html
+  label: uri
+
+- field_name:  Plinian_identifier
+  preset: multiple_text_single
+  label: identifier
+
+- field_name:  Plinian_reference
+  preset: multiple_text_single
+  label: reference
+
+- field_name:  Plinian_language
+  preset: multiple_text_single
+  label: language
+
+- field_name:  Plinian_creator
+  preset: multiple_text_single
+  label: creator
+
+- field_name:  Plinian_date
+  preset: multiple_text_single
+  label: date
+
+- field_name:  Plinian_publisher
+  preset: multiple_text_single
+  label: publisher
+
+- field_name:  Plinian_source
+  preset: multiple_text_single
+  label: source
+
+- field_name:  Plinian_title
+  preset: multiple_text_single
+  label: title
+
+- field_name:  Plinian_type
+  preset: multiple_text_single
+  label: type
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

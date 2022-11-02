@@ -1,0 +1,85 @@
+scheming_version: 2
+dataset_type: measurement_or_fact
+about: Modelo de measurement_or_fact - EIDOS
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: eg. A descriptive title
+
+- field_name: name
+  prefix: measurement_or_fact-
+  required: true
+  label: ID
+  help_text: Referencia inequívoca al recurso dentro de un contexto dado
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+  validators: if_empty_same_as(title) package_name_validator
+
+- field_name: uri
+  display_snippet: link.html
+  label: uri
+
+- field_name:  Darwin_measurementAccuracy
+  preset: multiple_text_single
+  label: measurementAccuracy
+
+- field_name:  Darwin_measurementDeterminedDate
+  preset: multiple_text_single
+  label: measurementDeterminedDate
+
+- field_name:  Darwin_measurementID
+  preset: multiple_text_single
+  label: measurementID
+
+- field_name:  Darwin_measurementMethod
+  preset: multiple_text_single
+  label: measurementMethod
+
+- field_name:  Darwin_measurementRemarks
+  preset: multiple_text_single
+  label: measurementRemarks
+
+- field_name:  Darwin_measurementType
+  preset: multiple_text_single
+  label: measurementType
+
+- field_name:  Darwin_measurementValue
+  preset: multiple_text_single
+  label: measurementValue
+
+- field_name:  Plinian_AppliesTo
+  preset: multiple_text_single
+  label: AppliesTo
+
+- field_name:  Darwin_measurementUnit
+  preset: multiple_text_single
+  label: measurementUnit
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

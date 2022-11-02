@@ -1,0 +1,23 @@
+{%- set values = data[field.field_name] -%}
+{%- if values|length > 1 -%}
+<ul>
+{%- for element in values -%}
+  <li>
+    {%- if element.startswith("http") -%}
+      {{ h.link_to(element, element, rel=element, target='_blank') }}
+    {%- else -%}
+        {{ element }}
+    {%- endif -%}
+  </li>
+{%- endfor -%}
+</ul>
+{%- else -%}
+  {%- if values|length == 1 -%}
+    {%- set val = values[0] -%}
+    {%- if val.startswith("http") -%}
+      {{ h.link_to(val, val, rel=val, target='_blank') }}
+    {%- else -%}
+      {{ val }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

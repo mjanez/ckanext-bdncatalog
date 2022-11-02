@@ -1,0 +1,14 @@
+# bdncatalog-js:
+#   filter: rjsmin
+#   output: ckanext-bdncatalog/%(version)s-bdncatalog.js
+#   contents:
+#     - js/bdncatalog.js
+#   extra:
+#     preload:
+#       - base/main
+
+# bdncatalog-css:
+#   filter: cssrewrite
+#   output: ckanext-bdncatalog/%(version)s-bdncatalog.css
+#   contents:
+#     - css/bdncatalog.css

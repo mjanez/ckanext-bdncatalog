@@ -1,0 +1,69 @@
+scheming_version: 2
+dataset_type: collection
+about: Modelo de collection - EIDOS
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label: Title
+  preset: title
+  form_placeholder: eg. A descriptive title
+
+- field_name: name
+  prefix: collection-
+  required: true
+  label: ID
+  help_text: Referencia inequívoca al recurso dentro de un contexto dado
+  preset: dataset_slug
+  form_placeholder: eg. my-dataset
+  validators: if_empty_same_as(title) package_name_validator
+
+- field_name: uri
+  display_snippet: link.html
+  label: uri
+
+- field_name:  Plinian_Code
+  preset: multiple_text_single
+  label: Code
+
+- field_name:  Plinian_CollectionDescription
+  preset: multiple_text_single
+  label: CollectionDescription
+
+- field_name:  Plinian_Country_txt
+  preset: multiple_text_single
+  label: Country_txt
+
+- field_name:  Plinian_IDCollection
+  preset: multiple_text_single
+  label: IDCollection
+
+- field_name:  Plinian_Year
+  preset: multiple_text_single
+  label: Year
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: name
+  label: Name
+  form_placeholder: eg. January 2011 Gold Prices
+
+- field_name: description
+  label: Description
+  form_snippet: markdown.html
+  form_placeholder: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete

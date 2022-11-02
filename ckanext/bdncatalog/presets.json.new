@@ -1,0 +1,22 @@
+{
+  "scheming_presets_version": 1,
+  "about": "scheming presets for Eidos",
+  "about_url": "https://datos.gob.es/es/catalogo/e05024701-base-de-datos-eidos",
+  "presets": [
+    {
+      "preset_name": "image_view",
+      "values": {
+        "display_snippet": "image_view.html"
+      }
+    },
+    {
+      "preset_name": "multiple_text_single",
+      "values": {
+	"form_snippet": "multiple_text_single.html",
+        "display_snippet": "multiple_text_single.html",
+        "validators": "scheming_multiple_text",
+        "output_validators": "multiple_text_single_output"
+      }
+    }
+  ]
+}
