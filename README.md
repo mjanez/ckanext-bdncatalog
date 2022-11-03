@@ -166,6 +166,55 @@ pip install  install -r requirements.txt
 	python3 loadEidosTTL.py
 	```
 
+### API
+#### All datasets `org=eidos-prueba`
+https://iepnb.es/catalogo-eidos/api/3/action/package_search?fq=organization:eidos-prueba
+
+```json
+{
+   "author":null,
+   "author_email":null,
+   "creator_user_id":"c0447fed-9487-4f15-9735-33cdd96567f4",
+   "id":"1aee5ddb-9a69-41f3-b37b-f6717478c78f",
+   "isopen":false,
+   "license_id":null,
+   "license_title":null,
+   "maintainer":null,
+   "maintainer_email":null,
+   "metadata_created":"2022-11-03T07:13:10.082966",
+   "metadata_modified":"2022-11-03T07:13:10.082971",
+   "name":"location_10kme316n182",
+   "notes":null,
+   "num_resources":0,
+   "num_tags":0,
+   "organization":{
+      "id":"8658449a-1cf5-4fb1-88bb-88026b8574e3",
+      "name":"eidos-prueba",
+      "title":"eidos-prueba",
+      "type":"organization",
+      "description":"eidos-prueba",
+      "image_url":"",
+      "created":"2022-11-02T13:51:34.804045",
+      "is_organization":true,
+      "approval_status":"approved",
+      "state":"active"
+   },
+   "owner_org":"8658449a-1cf5-4fb1-88bb-88026b8574e3",
+   "private":false,
+   "state":"active",
+   "title":"10kmE316N182",
+   "type":"location",
+   "url":null,
+   "version":null,
+   "resources":[],
+   "tags":[],
+   "extras":[],
+   "groups":[],
+   "relationships_as_subject":[],
+   "relationships_as_object":[]
+}
+```
+
 ### Sample:
 **Darwin_Location100422.ttl**
 ```json
