@@ -52,9 +52,7 @@ To install ckanext-bdncatalog:
    config file (by default the config file is located at
    `/etc/ckan/default/ckan.ini`).
 
-4. 
-
-5. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
+4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
 
      sudo service apache2 reload
 
@@ -81,7 +79,69 @@ do:
     pip install -r dev-requirements.txt
 
 
+## Tests
+
+To run the tests, do:
+
+    pytest --ckan-ini=test.ini
+
+
+## Releasing a new version of ckanext-bdncatalog
+
+If ckanext-bdncatalog should be available on PyPI you can follow these steps to publish a new version:
+
+1. Update the version number in the `setup.py` file. See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version numbers.
+
+2. Make sure you have the latest version of necessary packages:
+
+    pip install --upgrade setuptools wheel twine
+
+3. Create a source and binary distributions of the new version:
+
+       python setup.py sdist bdist_wheel && twine check dist/*
+
+   Fix any errors you get.
+
+4. Upload the source distribution to PyPI:
+
+       twine upload dist/*
+
+5. Commit any outstanding changes:
+
+       git commit -a
+       git push
+
+6. Tag the new release of the project on GitHub with the version number from
+   the `setup.py` file. For example if the version number in `setup.py` is
+   0.0.1 then do:
+
+       git tag 0.0.1
+       git push --tags
+
+
 ## Load TTLs
+Ad-hoc CKAN software to retrieve data from EIDOS TTL and ingest datasets into CKAN.
+
+**Requeriments:**
+The code compiles with Python 3. The required libraries can be found in `requirements.txt`.
+
+### Configuration
+The necessary steps to configure the environment and install the libraries are as follows. First create the `venv` directory where it will run (or replace `whoami` with the desired user name if you create for example one for `ckan`):
+```bash
+# Linux
+cd /my/path
+python3 -m venv .env    # sudo apt-get install python3-venv
+. my/path/.env/bin/activate
+python3 -m pip install  install -r requirements.txt
+
+# Windows
+cd /my/path
+python -m venv .env
+my/path/.env/Scripts/activate.bat  # CMD || env\Scripts\Activate.ps1  # Powershell
+pip install  install -r requirements.txt
+```
+
+### Launch
 1. Download https://datos.iepnb.es/datasets/eidos.ttl
 	```bash
 	curl -o eidos.ttl https://datos.iepnb.es/datasets/eidos.ttl
@@ -131,45 +191,6 @@ do:
 >**Note**<br>
 > `Inserted location` - https://datos.iepnb.es/recurso/sector-publico/medio-ambiente/pliniancore/Location/10kmE384N189
 
-
-## Tests
-
-To run the tests, do:
-
-    pytest --ckan-ini=test.ini
-
-
-## Releasing a new version of ckanext-bdncatalog
-
-If ckanext-bdncatalog should be available on PyPI you can follow these steps to publish a new version:
-
-1. Update the version number in the `setup.py` file. See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version numbers.
-
-2. Make sure you have the latest version of necessary packages:
-
-    pip install --upgrade setuptools wheel twine
-
-3. Create a source and binary distributions of the new version:
-
-       python setup.py sdist bdist_wheel && twine check dist/*
-
-   Fix any errors you get.
-
-4. Upload the source distribution to PyPI:
-
-       twine upload dist/*
-
-5. Commit any outstanding changes:
-
-       git commit -a
-       git push
-
-6. Tag the new release of the project on GitHub with the version number from
-   the `setup.py` file. For example if the version number in `setup.py` is
-   0.0.1 then do:
-
-       git tag 0.0.1
-       git push --tags
 
 ## License
 
