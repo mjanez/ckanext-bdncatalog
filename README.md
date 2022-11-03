@@ -19,14 +19,14 @@ Compatibility with core CKAN versions:
 | 2.6 and earlier | not tested    |
 | 2.7             | not tested    |
 | 2.8             | not tested    |
-| 2.9             | not tested    |
+| 2.9             | yes    |
 
-Suggested values:
-
-* "yes"
-* "not tested" - I can't think of a reason why it wouldn't work
-* "not yet" - there is an intention to get it working
-* "no"
+>**Note**<br>
+>Suggested values:
+>* `yes`
+>* `not tested` - I can't think of a reason why it wouldn't work
+>* `not yet` - there is an intention to get it working
+>* `no`
 
 
 ## Installation
@@ -37,35 +37,50 @@ Suggested values:
 
 To install ckanext-bdncatalog:
 
-1. Activate your CKAN virtual environment, for example:
-
-     . /usr/lib/ckan/default/bin/activate
-
+1. Activate your CKAN virtual environment.
 2. Clone the source and install it on the virtualenv
-	```
+	```bash
 	git clone https://github.com/mjanez/ckanext-bdncatalog.git
 	cd ckanext-bdncatalog
 	pip install -e .
 	pip install -r requirements.txt
 	```
 3. Add `bdncatalog` to the `ckan.plugins` setting in your CKAN
-   config file (by default the config file is located at
-   `/etc/ckan/default/ckan.ini`).
+   config file.
+	```ini
+	ckan.plugins = stats text_view image_view recline_view scheming_datasets bdncatalog dcat structured_data
+	```
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
-
-     sudo service apache2 reload
+4. Restart CKAN.
 
 
 ## Config settings
+Update the `ckanext-scheming` custom schemas based on `ckanext-bdncatalog`.
+```ini
+# DCAT SCHEMING-BDNCATALOG
+scheming.dataset_schemas = ckanext.bdncatalog:schema_collection.yaml
+			   ckanext.bdncatalog:schema_direct_threats_type.yaml
+			   ckanext.bdncatalog:schema_distribution_type.yaml
+			   ckanext.bdncatalog:schema_habitats_type.yaml
+			   ckanext.bdncatalog:schema_invasiveness_type.yaml
+			   ckanext.bdncatalog:schema_legislation_type.yaml
+			   ckanext.bdncatalog:schema_population_biology_type.yaml
+			   ckanext.bdncatalog:schema_record_metadata_type.yaml
+			   ckanext.bdncatalog:schema_reference_type.yaml
+			   ckanext.bdncatalog:schema_taxon_record.yaml
+			   ckanext.bdncatalog:schema_threat_status_type.yaml
+			   ckanext.bdncatalog:schema_vernacular_name.yaml
+			   ckanext.bdncatalog:schema_measurement_or_fact.yaml
+			   ckanext.bdncatalog:schema_taxon.yaml
+			   ckanext.bdncatalog:schema_location.yaml
+			   ckanext.bdncatalog:schema_management_conservation_type.yaml
+			   ckanext.bdncatalog:schema_dcat-ap_2.0.1.yaml
 
-None at present
 
-**TODO:** Document any optional config settings here. For example:
+scheming.presets = ckanext.scheming:presets.json ckanext.bdncatalog:presets.json
 
-	# The minimum number of hours to wait before re-checking a resource
-	# (optional, default: 24).
-	ckanext.bdncatalog.some_setting = some_default_value
+ckanext.dcat.rdf.profiles = eidos_rdf_profile
+```
 
 
 ## Developer installation
