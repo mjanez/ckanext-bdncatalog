@@ -8,15 +8,15 @@ The code compiles with Python 3. The required libraries can be found in `require
 The necessary steps to configure the environment and install the libraries are as follows. First create the `venv` directory where it will run (or replace `whoami` with the desired user name if you create for example one for `ckan`):
 ```bash
 # Linux
-cd /my/path
+cd src/eidos_ckan/
 python3 -m venv .env    # sudo apt-get install python3-venv
-. my/path/.env/bin/activate
+. .env/bin/activate
 python3 -m pip install  install -r requirements.txt
 
 # Windows
-cd /my/path
+cd src/eidos_ckan/
 python -m venv .env
-my/path/.env/Scripts/activate.bat  # CMD || env\Scripts\Activate.ps1  # Powershell
+.env/Scripts/activate.bat  # CMD || .env\Scripts\Activate.ps1  # Powershell
 pip install  install -r requirements.txt
 ```
 
