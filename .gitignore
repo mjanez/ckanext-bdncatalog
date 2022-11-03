@@ -40,3 +40,8 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+
+# tmp data
+src/eidos_ckan/data/tmp/
+src/eidos_ckan/data/eidos.ttl
