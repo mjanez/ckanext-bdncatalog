@@ -36,7 +36,6 @@ def insert_dataset(dataset_dict):
     # data_string = urllib.parse.quote(json.dumps(dataset_dict))
     # data_string = urllib.parse.urlencode(dataset_dict).encode("utf-8")
     data_string = json.dumps(dataset_dict).encode("utf-8")
-    print(data_string)
 
     #print("data_string")
     #print(data_string)
@@ -248,9 +247,8 @@ def insert_generic(g, filename, fields, _type, rdf_type, name_field,
                     dataset_dict['title'] = str(row[title_field])
 
                 if fld == name_field:
-                    dataset_dict_name = _type + '_' + str(row[name_field])
                     # si no está este campo, que dé fallo
-                    dataset_dict['name'] = dataset_dict_name.lower()
+                    dataset_dict['name'] = _type + '_' + str(row[name_field])
                     # aprovechamos para rellenar este campo tambien
                     dataset_dict['uri'] = str(row.uri)
 
@@ -322,7 +320,6 @@ items = ['Darwin_Location', 'Darwin_MeasurementOrFact', 'Darwin_Taxon',
 for prefix in items:
     print(path_tmp + prefix + '*')
     for filename in glob.glob(path_tmp + prefix + '*'):
-        print(filename)
         g = Graph()
         g.parse(filename, format='turtle')
         call_action_by_type(prefix, g, filename)
