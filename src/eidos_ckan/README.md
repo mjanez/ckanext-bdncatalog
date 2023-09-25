@@ -20,7 +20,7 @@ python -m venv .env
 pip install  install -r requirements.txt
 ```
 
-## Launch
+### Launch
 1. Download https://datos.iepnb.es/datasets/eidos.ttl
 	```bash
 	curl -o eidos.ttl https://datos.iepnb.es/datasets/eidos.ttl
@@ -34,11 +34,11 @@ pip install  install -r requirements.txt
 	```bash
 	python3 splitFilesEidosTTL.py
 	```
-3. Create a `eidos-prueba` organization in CKAN.
+3. Create an org in CKAN (e.g `test`)
 4. Update `loadEidosTTL.py` parameters:
 	- `ckan_url`: CKAN site.
 	- `api_key`: http://{ckan_site_url}:5000/user/admin authorization key.
-	- `path_tmp`: SplitFilesEidosTTL.py `path_tmp`
+	- `owner_org`: Previous organization created to load the datasets.
 	
 5. Load TTLs into CKAN
 	```bash

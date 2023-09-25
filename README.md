@@ -144,15 +144,15 @@ The code compiles with Python 3. The required libraries can be found in `require
 The necessary steps to configure the environment and install the libraries are as follows. First create the `venv` directory where it will run (or replace `whoami` with the desired user name if you create for example one for `ckan`):
 ```bash
 # Linux
-cd /my/path
+cd src/eidos_ckan/
 python3 -m venv .env    # sudo apt-get install python3-venv
-. my/path/.env/bin/activate
+. .env/bin/activate
 python3 -m pip install  install -r requirements.txt
 
 # Windows
-cd /my/path
+cd src/eidos_ckan/
 python -m venv .env
-my/path/.env/Scripts/activate.bat  # CMD || env\Scripts\Activate.ps1  # Powershell
+.env/Scripts/activate.bat  # CMD || .env\Scripts\Activate.ps1  # Powershell
 pip install  install -r requirements.txt
 ```
 
@@ -170,11 +170,11 @@ pip install  install -r requirements.txt
 	```bash
 	python3 splitFilesEidosTTL.py
 	```
-3. Create a `eidos-prueba` organization in CKAN.
+3. Create an org in CKAN (e.g `test`)
 4. Update `loadEidosTTL.py` parameters:
 	- `ckan_url`: CKAN site.
 	- `api_key`: http://{ckan_site_url}:5000/user/admin authorization key.
-	- `path_tmp`: SplitFilesEidosTTL.py `path_tmp`
+	- `owner_org`: Previous organization created to load the datasets.
 	
 5. Load TTLs into CKAN
 	```bash
@@ -182,8 +182,8 @@ pip install  install -r requirements.txt
 	```
 
 ### API
-#### All datasets `org=eidos-prueba`
-https://iepnb.es/catalogo-eidos/api/3/action/package_search?fq=organization:eidos-prueba
+#### All datasets `org=test`
+https://des.iepnb.es/catalogo-bdn/api/3/action/package_search?fq=organization:test
 
 ```json
 {
@@ -204,10 +204,10 @@ https://iepnb.es/catalogo-eidos/api/3/action/package_search?fq=organization:eido
    "num_tags":0,
    "organization":{
       "id":"8658449a-1cf5-4fb1-88bb-88026b8574e3",
-      "name":"eidos-prueba",
-      "title":"eidos-prueba",
+      "name":"test",
+      "title":"test",
       "type":"organization",
-      "description":"eidos-prueba",
+      "description":"test",
       "image_url":"",
       "created":"2022-11-02T13:51:34.804045",
       "is_organization":true,
@@ -234,7 +234,7 @@ https://iepnb.es/catalogo-eidos/api/3/action/package_search?fq=organization:eido
 **Darwin_Location100422.ttl**
 ```json
 {
-   "owner_org":"eidos-prueba",
+   "owner_org":"test",
    "type":"location",
    "Plinian_hasCell":[
       "https://datos.iepnb.es/recurso/sector-publico/cuadricula-espacial/celda/10kmE384N189"
